@@ -2,6 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Java/com.crossasyst" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Visualcode/HTML-CSS-JavaScript-projects-for-beginners" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/com.crossasyst" vcs="Git" />
   </component>
 </project>

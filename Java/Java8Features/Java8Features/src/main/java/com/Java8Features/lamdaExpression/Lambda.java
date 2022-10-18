@@ -1,4 +1,4 @@
-package com.Java8Features.features;
+package com.Java8Features.lamdaExpression;
 
 public interface Lambda{
     void switchOn();
