@@ -7,5 +7,5 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface CricketPlayerMapper {
         CricketPlayerEntity modelTOEntity(CricketPlayers cricketPlayers);
-
+        CricketPlayers entityToModel(CricketPlayerEntity cricketPlayerEntity);
 }

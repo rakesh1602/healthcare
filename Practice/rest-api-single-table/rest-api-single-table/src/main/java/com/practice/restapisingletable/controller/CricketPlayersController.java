@@ -23,4 +23,22 @@ public class CricketPlayersController {
         return new ResponseEntity<>(cricketPlayerResponse, HttpStatus.CREATED);
     }
 
+    @GetMapping(path="/players/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CricketPlayers> getPlayers(@PathVariable Long id) throws Exception {
+        CricketPlayers cricketPlayers=cricketPlayersService.getPlayers(id);
+        return new ResponseEntity<>(cricketPlayers, HttpStatus.OK);
+    }
+
+    @PutMapping(path = "/players/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CricketPlayers> updatePlayers(@PathVariable Long id, @RequestBody CricketPlayers cricketPlayers){
+        cricketPlayers=cricketPlayersService.updatePlayers(id, cricketPlayers );
+        return new ResponseEntity<>(cricketPlayers, HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/players/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        cricketPlayersService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
 }

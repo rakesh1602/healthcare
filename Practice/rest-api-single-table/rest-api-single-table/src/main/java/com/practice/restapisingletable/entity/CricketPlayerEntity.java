@@ -1,6 +1,7 @@
 package com.practice.restapisingletable.entity;
 
 import lombok.*;
+import org.hibernate.annotations.GeneratorType;
 
 
 import javax.persistence.*;
@@ -11,7 +12,8 @@ import javax.persistence.*;
 @Table(name = "cricket_players_details")
 public class CricketPlayerEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "cricket_player_seq", sequenceName ="cricket_player_seq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cricket_player_seq")
     private Long id;
     private String name;
     private String role;
