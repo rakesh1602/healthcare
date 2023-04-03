@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -13,17 +14,20 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "extra_dep_entity")
+@Table(name = "extra_department_many_to_many")
 public class DepartmentEntity {
     @Id
-    @SequenceGenerator(name = "seq_extra_dept_id", initialValue = 1000, sequenceName = "seq_extra_dept_id", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_extra_dept_id")
+    @SequenceGenerator(name = "seq_dept_id", initialValue = 1, sequenceName = "seq_dept_id", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_dept_id")
     private Long id;
-    private String depName;
+    private String name;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
     }, mappedBy = "department")
-    private Set<EmployeeEntity> Employee;
+    private Set<EmployeeEntity> employee;
+
+    @OneToMany(mappedBy = "departmentEntity", cascade = CascadeType.ALL)
+    private Set<DepEmpEntity> depEmpEntities=new HashSet<>();
 }

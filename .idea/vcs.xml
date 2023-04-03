@@ -2,8 +2,21 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Angular" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Angular/route-task/route-task" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Java/com.crossasyst" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Spring" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Spring/Misc" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Spring/Misc/spring-boot-scheduler" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Spring/Rest API/RestTemplate" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Spring/Rest API/jpapractice-master (1)/jpapractice-master" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Spring/Rest API/newdemo/newdemo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Spring/Rest API/oneToOne/oneToOne" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Spring/Rest API/springboot-jpa" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Spring/grpc-spring-boot-example" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Spring/jpapractice-master/jpapractice-master" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Visualcode/HTML-CSS-JavaScript-projects-for-beginners" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/com.crossasyst" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/thingsboard" vcs="Git" />
   </component>
 </project>

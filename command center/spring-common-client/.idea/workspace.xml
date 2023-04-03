@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="94b296a0-93e6-4178-bf92-681504f4d735" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Completed projects/.idea/Completed projects.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/.idea/GoLang.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/Web Request (Hitesh)/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/Web Request (Hitesh)/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/Web Request (Hitesh)/springRequest.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/Web Request (Hitesh)/url.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/basics/Arrays.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/basics/HelloWorld.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/basics/HelloWorld.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/basics/forLoop.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/basics/functions.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/basics/map.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/basics/recursion.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/basics/slice.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/basics/struct.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/basics/switch.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/basics/userInput.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/buildapi.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/buildapi/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/buildapi/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/buildapi/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/jsondata/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/mod/main.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/mod/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/pointers/basic.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/variables/Variables.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/variables/constant.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GoLang/variables/multipleVariables.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/mapper/EmployeeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Python/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Python/.idea/Python.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Python/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Python/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Python/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Python/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Python/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thymeleaf/thymeleaf/src/main/java/com/example/thymeleaf/controller/PersonController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thymeleaf/thymeleaf/src/main/java/com/example/thymeleaf/model/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thymeleaf/thymeleaf/src/main/java/com/example/thymeleaf/service/PersonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thymeleaf/thymeleaf/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/entity/DepEmpEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/entity/DepEmpEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/entity/DepartmentEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/entity/DepartmentEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/entity/EmployeeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/entity/EmployeeEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/mapper/EmpDepMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/model/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/model/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Practice/manyTomanyExtraColumn/src/main/java/com/practice/manyTomanyExtraColumn/service/EmployeeService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2KAqQR8Gj6vrXvH0FSE8jDbvDxt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="94b296a0-93e6-4178-bf92-681504f4d735" name="Changes" comment="" />
+      <created>1673427718898</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673427718898</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

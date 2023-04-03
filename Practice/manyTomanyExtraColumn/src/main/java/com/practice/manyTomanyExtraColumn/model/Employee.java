@@ -14,6 +14,6 @@ import java.util.Set;
 public class Employee {
     private String firstName;
     private String lastName;
-
     private Set<Department> department;
 }
+

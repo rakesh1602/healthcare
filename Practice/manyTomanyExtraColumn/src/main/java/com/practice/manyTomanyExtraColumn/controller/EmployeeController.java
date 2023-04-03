@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class EmployeeController {
-
     @Autowired
     private EmployeeService employeeService;
 
     @PostMapping(path = "/employees")
     public ResponseEntity<EmployeeResponse> createEmployee(@RequestBody Employee employee){
         EmployeeResponse employeeResponse=employeeService.createEmployee(employee);
-        return new ResponseEntity<>(employeeResponse, HttpStatus.OK);
+        return new ResponseEntity<>(employeeResponse, HttpStatus.CREATED);
     }
 }
