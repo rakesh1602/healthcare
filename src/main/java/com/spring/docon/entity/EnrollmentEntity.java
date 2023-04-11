@@ -9,6 +9,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.time.Duration;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Entity
 @Table(name = "enrollment")
 public class EnrollmentEntity {
@@ -26,9 +28,9 @@ public class EnrollmentEntity {
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private UUID enrollmentId;
 
+    private Duration expiry;
+
     @OneToOne
     @JoinColumn(name = "patient_id")
     private PatientEntity patientEntity;
-
-    private Duration expiry;
 }

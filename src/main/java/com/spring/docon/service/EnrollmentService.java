@@ -56,7 +56,7 @@ public class EnrollmentService {
             enrollmentResponse.setEnrollmentID(enrollmentEntity.getEnrollmentId());
             log.info("Response id : {}", enrollmentResponse.getEnrollmentID());
 
-            kafkaProducer.producer(enrollmentEntity.getPatientEntity().getUserRegisterEntity(),enrollmentEntity.getPatientEntity().getUserRegisterEntity().getAccountEntity(), enrollmentEntity);
+            kafkaProducer.producer(enrollmentEntity);
         }
         return enrollmentResponse;
     }

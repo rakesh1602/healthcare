@@ -5,12 +5,16 @@ import com.spring.docon.entity.EnrollmentEntity;
 import com.spring.docon.entity.PatientEntity;
 import com.spring.docon.entity.UserRegisterEntity;
 import com.spring.docon.repository.PatientRepository;
+import lombok.ToString;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
+@Log4j2
+@ToString
 public class KafkaProducer {
 
     private final KafkaTemplate<String, UserRegisterEntity> userRegisterEntityKafkaTemplate;
@@ -19,11 +23,11 @@ public class KafkaProducer {
 
     private final KafkaTemplate<String, EnrollmentEntity> enrollmentEntityKafkaTemplate;
 
-    private UserRegisterEntity userRegisterEntity=new UserRegisterEntity();
+    private UserRegisterEntity userRegisterEntity = new UserRegisterEntity();
 
-    private AccountEntity accountEntity=new AccountEntity();
+    private AccountEntity accountEntity = new AccountEntity();
 
-    private PatientEntity patientEntity=new PatientEntity();
+    private PatientEntity patientEntity = new PatientEntity();
 
     private PatientRepository patientRepository;
 
@@ -38,12 +42,17 @@ public class KafkaProducer {
         this.patientRepository = patientRepository;
     }
 
-    public void producer(UserRegisterEntity userRegisterEntity, AccountEntity accountEntity, EnrollmentEntity enrollmentEntity) {
+    public void producer(EnrollmentEntity enrollmentEntity) {
+
+        log.info("Retrieving entity details to send to the kafka.");
+
         PatientEntity patientEntity1 = patientRepository.findById(enrollmentEntity.getPatientEntity().getPatientId()).get();
-        userRegisterEntity.setAccountEntity(patientEntity1.getUserRegisterEntity().getAccountEntity());
-        patientEntity1.setUserRegisterEntity(enrollmentEntity.getPatientEntity().getUserRegisterEntity());
-        userRegisterEntityKafkaTemplate.send(topicName, "user", userRegisterEntity);
-        accountEntityKafkaTemplate.send(topicName, "account", accountEntity);
+        log.info("Patient details found of id {}", patientEntity1.getPatientId());
+
+        userRegisterEntity = enrollmentEntity.getPatientEntity().getUserRegisterEntity();
+        accountEntity=enrollmentEntity.getPatientEntity().getUserRegisterEntity().getAccountEntity();
+
+        log.info("Sending details to kafka topic {}.", topicName);
         enrollmentEntityKafkaTemplate.send(topicName, "enrollment", enrollmentEntity);
     }
 }

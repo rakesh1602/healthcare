@@ -11,11 +11,13 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Entity
 @Table(name = "patient")
 public class PatientEntity {
@@ -29,10 +31,10 @@ public class PatientEntity {
     private String bloodGroup;
 
     @Column(name = "height")
-    private String height;
+    private Integer height;
 
     @Column(name = "weight")
-    private String weight;
+    private Integer weight;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id")
