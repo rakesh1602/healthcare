@@ -7,12 +7,14 @@ import com.spring.docon.model.Enrollment;
 import com.spring.docon.repository.EnrollmentRepository;
 import com.spring.docon.repository.PatientRepository;
 import com.spring.docon.response.EnrollmentResponse;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @Log4j2
@@ -24,9 +26,11 @@ public class EnrollmentService {
 
     private final PatientRepository patientRepository;
 
-    private final KafkaProducer kafkaProducer;
+    private KafkaProducer kafkaProducer;
 
-    private final EnrollmentResponse enrollmentResponse = new EnrollmentResponse();
+    private EnrollmentResponse enrollmentResponse = new EnrollmentResponse();
+
+    private Enrollment enrollment = new Enrollment();
 
     @Autowired
     public EnrollmentService(EnrollmentRepository enrollmentRepository, EnrollmentMapper enrollmentMapper, PatientRepository patientRepository, KafkaProducer kafkaProducer) {
@@ -40,12 +44,12 @@ public class EnrollmentService {
 
         log.info("Retrieving patient details");
 
-        Optional<PatientEntity> optionalPatientEntity = patientRepository.findById(patientId);
-        log.info("Patient details found for id {}", patientId);
+        PatientEntity patientEntity = patientRepository.findById(patientId)
+                .orElseThrow(() -> new RuntimeException("Patient id not found " + patientId));
 
-        if (optionalPatientEntity.isPresent()) {
+        if (patientEntity != null) {
             EnrollmentEntity enrollmentEntity = enrollmentMapper.modelToEntity(enrollment);
-            enrollmentEntity.setPatientEntity(optionalPatientEntity.get());
+            enrollmentEntity.setPatientEntity(patientEntity);
 
             Duration duration = Duration.ofDays(15);
             enrollmentEntity.setExpiry(duration);
@@ -60,4 +64,14 @@ public class EnrollmentService {
         }
         return enrollmentResponse;
     }
+
+    public Enrollment getEnrollment(UUID enrollmentId) {
+        EnrollmentEntity enrollmentEntity = enrollmentRepository.findByUUID(enrollmentId)
+                .orElseThrow(() -> new EntityNotFoundException("Enrollment id not found " + enrollmentId));
+
+        enrollment.setUuid(enrollmentEntity.getEnrollmentId());
+        return enrollment;
+    }
+
+
 }

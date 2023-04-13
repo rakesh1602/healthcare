@@ -6,12 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.Duration;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Enrollment {
 
-    @JsonIgnore
+    private UUID uuid;
+
     private Duration expiry;
 }

@@ -36,6 +36,8 @@ public class UserRegisterService {
 
     private final AccountMapper accountMapper;
 
+    private Account account = new Account();
+
     @Autowired
     private final KafkaTemplate<String, JSONObject> kafkaTemplate;
 
@@ -75,22 +77,16 @@ public class UserRegisterService {
             log.info(accountId + " account id");
             getAccounts(accountId);
         }
-
         return userResponse;
     }
 
     public Account getAccounts(Long accountId) {
-        Optional<AccountEntity> accountEntityOptional = accountEntityRepository.findById(userRegisterEntity.getAccountEntity().getAccountId());
+        AccountEntity accountEntity = accountEntityRepository.findById(userRegisterEntity.getAccountEntity().getAccountId())
+                .orElseThrow(() -> new RuntimeException("Account id not found " + accountId));
 
-        Account account = new Account();
-        if (accountEntityOptional.isPresent()) {
-            account = accountMapper.entityToModel(accountEntityOptional.get());
+        if (accountEntity != null) {
+            account = accountMapper.entityToModel(accountEntity);
             log.info("Account details found");
-
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("account", account);
-            kafkaTemplate.send(topicName, jsonObject);
-            log.info("Sending account details to kafka with topic name {}", topicName);
         }
         return account;
     }

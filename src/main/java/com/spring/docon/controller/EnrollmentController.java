@@ -9,15 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @Tag(name = "Create enrollment", description = "Create enrollment")
 @RequestMapping(path = "v1")
 @RestController
+@CrossOrigin(originPatterns = "*")
 public class EnrollmentController {
 
     private final EnrollmentService enrollmentService;
@@ -33,5 +38,13 @@ public class EnrollmentController {
         EnrollmentResponse enrollmentResponse=enrollmentService.createEnrollment(patientId, enrollment);
 
         return new ResponseEntity<>(enrollmentResponse, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/enrollment/{enrollmentId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Enrollment> getEnrollment(@PathVariable UUID enrollmentId){
+
+        Enrollment enrollment=enrollmentService.getEnrollment(enrollmentId);
+
+        return new ResponseEntity<>(enrollment, HttpStatus.OK);
     }
 }

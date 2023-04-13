@@ -1,6 +1,5 @@
 package com.spring.docon.controller;
 
-import com.spring.docon.entity.AccountEntity;
 import com.spring.docon.model.Account;
 import com.spring.docon.model.UserRegister;
 import com.spring.docon.response.UserResponse;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -25,16 +23,16 @@ public class UserController {
         this.userRegisterService = userRegisterService;
     }
 
-    @PostMapping(path = "/users")
+    @PostMapping(path = "/person")
     public ResponseEntity<UserResponse> addUser(@RequestBody UserRegister userRegister) {
         UserResponse userResponse = userRegisterService.addUser(userRegister);
         return new ResponseEntity<>(userResponse, HttpStatus.OK);
     }
 
- /*   @GetMapping(path = "/account/{accountId}")
+    @GetMapping(path = "/account/{accountId}")
     public ResponseEntity<Account> getAccount(@PathVariable Long accountId){
         Account account=userRegisterService.getAccounts(accountId);
         return new ResponseEntity<>(account, HttpStatus.OK);
 
-    }*/
+    }
 }

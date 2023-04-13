@@ -27,8 +27,6 @@ public class KafkaProducer {
 
     private AccountEntity accountEntity = new AccountEntity();
 
-    private PatientEntity patientEntity = new PatientEntity();
-
     private PatientRepository patientRepository;
 
     @Value("${topic.name.producer}")
@@ -46,13 +44,13 @@ public class KafkaProducer {
 
         log.info("Retrieving entity details to send to the kafka.");
 
-        PatientEntity patientEntity1 = patientRepository.findById(enrollmentEntity.getPatientEntity().getPatientId()).get();
-        log.info("Patient details found of id {}", patientEntity1.getPatientId());
+        PatientEntity patientEntity = patientRepository.findById(enrollmentEntity.getPatientEntity().getPatientId())
+                .orElseThrow(() -> new RuntimeException("Patient id not found"));
+        log.info("Patient details found of id {}", patientEntity.getPatientId());
 
-        userRegisterEntity = enrollmentEntity.getPatientEntity().getUserRegisterEntity();
-        accountEntity=enrollmentEntity.getPatientEntity().getUserRegisterEntity().getAccountEntity();
-
-        log.info("Sending details to kafka topic {}.", topicName);
-        enrollmentEntityKafkaTemplate.send(topicName, "enrollment", enrollmentEntity);
+        if (patientRepository.existsById(patientEntity.getPatientId())) {
+            log.info("Sending details to kafka topic {}.", topicName);
+            enrollmentEntityKafkaTemplate.send(topicName, "enrollment", enrollmentEntity);
+        }
     }
 }
