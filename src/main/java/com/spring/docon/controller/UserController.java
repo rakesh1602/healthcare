@@ -23,13 +23,21 @@ public class UserController {
         this.userRegisterService = userRegisterService;
     }
 
+<<<<<<< HEAD
     @PostMapping(path = "/person")
+=======
+    @PostMapping(path = "/users")
+>>>>>>> c73a568 (password-encrypt)
     public ResponseEntity<UserResponse> addUser(@RequestBody UserRegister userRegister) {
         UserResponse userResponse = userRegisterService.addUser(userRegister);
         return new ResponseEntity<>(userResponse, HttpStatus.OK);
     }
 
+<<<<<<< HEAD
     @GetMapping(path = "/account/{accountId}")
+=======
+    @GetMapping(path = "/accounts/{accountId}")
+>>>>>>> c73a568 (password-encrypt)
     public ResponseEntity<Account> getAccount(@PathVariable Long accountId){
         Account account=userRegisterService.getAccounts(accountId);
         return new ResponseEntity<>(account, HttpStatus.OK);

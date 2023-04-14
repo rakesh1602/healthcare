@@ -25,7 +25,11 @@ public class GenderController {
         this.genderService=genderService;
     }
 
+<<<<<<< HEAD
     @GetMapping(path = "/gender")
+=======
+    @GetMapping(path = "/genders")
+>>>>>>> c73a568 (password-encrypt)
     public ResponseEntity<List<GenderEntity>> Gender(){
         List<GenderEntity> gender=genderService.getGender();
         return new ResponseEntity<>(gender, HttpStatus.OK);

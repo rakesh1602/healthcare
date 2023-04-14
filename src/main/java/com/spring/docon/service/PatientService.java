@@ -10,6 +10,9 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
 @Service
 @Log4j2
 public class PatientService {
@@ -32,7 +35,9 @@ public class PatientService {
     }
 
     public PatientResponse addPatient(Patient patient) {
+        log.info("Adding patient details.");
         patientEntity = patientMapper.modelToEntity(patient);
+        patientEntity.getUserRegisterEntity().getAccountEntity().setPassword(Base64.getEncoder().encodeToString(patientEntity.getUserRegisterEntity().getAccountEntity().getPassword().getBytes()));
         patientRepository.save(patientEntity);
         log.info("Patient details saved successfully.");
 

@@ -32,7 +32,11 @@ public class EnrollmentController {
         this.enrollmentService = enrollmentService;
     }
 
+<<<<<<< HEAD
     @PostMapping(path = "patient/{patientId}/enrollment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+=======
+    @PostMapping(path = "patients/{patientId}/enrollment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+>>>>>>> c73a568 (password-encrypt)
     public ResponseEntity<EnrollmentResponse> createEnrollment(@PathVariable Long patientId, @RequestBody @Valid Enrollment enrollment){
 
         EnrollmentResponse enrollmentResponse=enrollmentService.createEnrollment(patientId, enrollment);
@@ -40,7 +44,11 @@ public class EnrollmentController {
         return new ResponseEntity<>(enrollmentResponse, HttpStatus.OK);
     }
 
+<<<<<<< HEAD
     @GetMapping(path = "/enrollment/{enrollmentId}", produces = MediaType.APPLICATION_JSON_VALUE)
+=======
+    @GetMapping(path = "/enrollments/{enrollmentId}", produces = MediaType.APPLICATION_JSON_VALUE)
+>>>>>>> c73a568 (password-encrypt)
     public ResponseEntity<Enrollment> getEnrollment(@PathVariable UUID enrollmentId){
 
         Enrollment enrollment=enrollmentService.getEnrollment(enrollmentId);
