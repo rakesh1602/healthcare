@@ -41,7 +41,15 @@ public class EnrollmentController {
     @GetMapping(path = "enrollments/{enrollmentId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<EnrollmentResponse> getEnrollment(@PathVariable UUID enrollmentId){
 
+<<<<<<< HEAD
         EnrollmentResponse enrollment=enrollmentService.getEnrollment(enrollmentId);
+=======
+
+    @GetMapping(path = "/enrollments/{enrollmentId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Enrollment> getEnrollment(@PathVariable UUID enrollmentId){
+
+        Enrollment enrollment=enrollmentService.getEnrollment(enrollmentId);
+>>>>>>> f62aa9d4d01904d6d20b8362e2e2151384f69f11
 
         return new ResponseEntity<>(enrollment, HttpStatus.OK);
     }

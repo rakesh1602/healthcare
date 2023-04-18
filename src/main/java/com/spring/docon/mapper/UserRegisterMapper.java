@@ -5,9 +5,16 @@ import com.spring.docon.model.UserRegister;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface UserRegisterMapper {
 
-    @Mapping(source = "account", target = "accountEntity")
     UserRegisterEntity modelToEntity(UserRegister userRegister);
+
+    List<UserRegister> entityToModels(List<UserRegisterEntity> userRegister);
+
+    UserRegister entityToModel (UserRegisterEntity userRegister);
+
+
 }

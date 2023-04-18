@@ -12,13 +12,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Patient {
 
-    @JsonIgnore
     private String bloodGroup;
 
-    @JsonIgnore
     private Integer height;
 
-    @JsonIgnore
     private Integer weight;
 
     private UserRegister person =new UserRegister();

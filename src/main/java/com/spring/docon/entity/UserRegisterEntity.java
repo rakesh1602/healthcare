@@ -46,10 +46,17 @@ public class UserRegisterEntity {
     @Column
     private String role;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Boolean deleted = Boolean.FALSE;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
+<<<<<<< HEAD
     private AccountEntity accountEntity;
 
     public UserRegisterEntity(long userId, String mr, String rakesh, String chavan, String s, int phoneNumber, String male, String admin, AccountEntity accountEntity) {
     }
+=======
+    private AccountEntity account;
+>>>>>>> f62aa9d4d01904d6d20b8362e2e2151384f69f11
 }

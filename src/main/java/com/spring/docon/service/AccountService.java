@@ -1,6 +1,7 @@
 package com.spring.docon.service;
 
 import com.spring.docon.entity.AccountEntity;
+<<<<<<< HEAD
 import com.spring.docon.entity.EnrollmentEntity;
 import com.spring.docon.model.patch.Password;
 import com.spring.docon.repository.AccountRepository;
@@ -16,10 +17,18 @@ import java.util.UUID;
 
 @Service
 @Log4j2
+=======
+import com.spring.docon.mapper.AccountMapper;
+import com.spring.docon.model.Account;
+import com.spring.docon.repository.AccountRepository;
+import com.spring.docon.response.AccountResponse;
+
+>>>>>>> f62aa9d4d01904d6d20b8362e2e2151384f69f11
 public class AccountService {
 
     private final AccountRepository accountRepository;
 
+<<<<<<< HEAD
     private final EnrollmentRepository enrollmentRepository;
 
     private AccountEntity accountEntity = new AccountEntity();
@@ -47,5 +56,23 @@ public class AccountService {
         }
         passwordResponse.setMessage("Your password has been created successfully!");
         return passwordResponse;
+=======
+    private final AccountMapper accountMapper;
+
+    public AccountService(AccountRepository accountRepository, AccountMapper accountMapper) {
+        this.accountRepository = accountRepository;
+        this.accountMapper = accountMapper;
+    }
+
+    public AccountResponse addAccount(Account account) {
+        AccountEntity accountEntity = accountMapper.modelToEntity(account);
+        accountRepository.save(accountEntity);
+
+        AccountResponse accountResponse = new AccountResponse();
+        accountResponse.setAccountId(accountEntity.getAccountId());
+
+        return accountResponse;
+
+>>>>>>> f62aa9d4d01904d6d20b8362e2e2151384f69f11
     }
 }

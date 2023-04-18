@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+=======
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+>>>>>>> f62aa9d4d01904d6d20b8362e2e2151384f69f11
 
 @Tag(name = "Create Patient", description = "Create Patient")
 //@RequestMapping(path = "v1")
@@ -40,6 +46,7 @@ public class PatientController {
         PatientResponse patientResponse=patientService.addPatient(patient);
         return new ResponseEntity<>(patientResponse, HttpStatus.OK);
     }
+<<<<<<< HEAD
 
     @ApiResponse(responseCode = "200", description = "Success")
     @ApiResponse(responseCode = "400", description = "Invalid request")
@@ -50,4 +57,30 @@ public class PatientController {
         Patient patient=patientService.getPatient(patientId);
         return new ResponseEntity<>(patient, HttpStatus.OK);
     }
+=======
+    @GetMapping(path = "patients/{patientId}")
+    public ResponseEntity<Patient> searchPatient(@PathVariable Long patientId) {
+        Patient patient = patientService.searchPatient(patientId);
+        return new ResponseEntity<>(patient, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/patients")
+    public ResponseEntity<List<Patient>> getAllPatients() {
+        List<Patient> patients = patientService.getAllPatients();
+        return new ResponseEntity<>(patients, HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "patients/{patientId}")
+    public void deleteById(@PathVariable Long patientId){
+        patientService.deleteById(patientId);
+    }
+
+    @PutMapping(value = "/patients/{patientId}")
+    public ResponseEntity<Patient> updatePatient(@PathVariable Long patientId , @RequestBody Patient patient)
+    {
+        Patient patient1= patientService.updatePatient(patientId, patient);
+        return new ResponseEntity<>(patient , HttpStatus.OK);
+    }
+
+>>>>>>> f62aa9d4d01904d6d20b8362e2e2151384f69f11
 }

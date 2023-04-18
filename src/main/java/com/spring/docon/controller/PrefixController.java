@@ -22,6 +22,11 @@ public class PrefixController {
         this.prefixService=prefixService;
     }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f62aa9d4d01904d6d20b8362e2e2151384f69f11
     @GetMapping(path = "/prefixs")
     public ResponseEntity<List<PrefixEntity>> Gender(){
         List<PrefixEntity> prefix=prefixService.getPrefix();
