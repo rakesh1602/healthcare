@@ -1,5 +1,6 @@
 package com.spring.docon.controller;
 
+import com.spring.docon.entity.EnrollmentEntity;
 import com.spring.docon.model.Enrollment;
 import com.spring.docon.response.EnrollmentResponse;
 import com.spring.docon.service.EnrollmentService;
@@ -20,9 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @Tag(name = "Create enrollment", description = "Create enrollment")
-@RequestMapping(path = "v1")
 @RestController
-@CrossOrigin(originPatterns = "*")
 public class EnrollmentController {
 
     private final EnrollmentService enrollmentService;
@@ -32,26 +31,17 @@ public class EnrollmentController {
         this.enrollmentService = enrollmentService;
     }
 
-<<<<<<< HEAD
-    @PostMapping(path = "patient/{patientId}/enrollment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-=======
     @PostMapping(path = "patients/{patientId}/enrollment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
->>>>>>> c73a568 (password-encrypt)
     public ResponseEntity<EnrollmentResponse> createEnrollment(@PathVariable Long patientId, @RequestBody @Valid Enrollment enrollment){
 
         EnrollmentResponse enrollmentResponse=enrollmentService.createEnrollment(patientId, enrollment);
 
         return new ResponseEntity<>(enrollmentResponse, HttpStatus.OK);
     }
+    @GetMapping(path = "enrollments/{enrollmentId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<EnrollmentResponse> getEnrollment(@PathVariable UUID enrollmentId){
 
-<<<<<<< HEAD
-    @GetMapping(path = "/enrollment/{enrollmentId}", produces = MediaType.APPLICATION_JSON_VALUE)
-=======
-    @GetMapping(path = "/enrollments/{enrollmentId}", produces = MediaType.APPLICATION_JSON_VALUE)
->>>>>>> c73a568 (password-encrypt)
-    public ResponseEntity<Enrollment> getEnrollment(@PathVariable UUID enrollmentId){
-
-        Enrollment enrollment=enrollmentService.getEnrollment(enrollmentId);
+        EnrollmentResponse enrollment=enrollmentService.getEnrollment(enrollmentId);
 
         return new ResponseEntity<>(enrollment, HttpStatus.OK);
     }

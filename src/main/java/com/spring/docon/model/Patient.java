@@ -21,5 +21,5 @@ public class Patient {
     @JsonIgnore
     private Integer weight;
 
-    private UserRegister user;
+    private UserRegister person =new UserRegister();
 }

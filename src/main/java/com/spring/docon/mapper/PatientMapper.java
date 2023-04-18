@@ -5,10 +5,14 @@ import com.spring.docon.model.Patient;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.Optional;
+
 @Mapper(componentModel = "spring")
 public interface PatientMapper {
 
-    @Mapping(source = "user", target = "userRegisterEntity")
-    @Mapping(source = "user.account", target = "userRegisterEntity.accountEntity")
+    @Mapping(source = "person", target = "userRegisterEntity")
+    @Mapping(source = "person.account", target = "userRegisterEntity.accountEntity")
     PatientEntity modelToEntity(Patient patient);
+
+    Patient entityToModel(Optional<PatientEntity> patientEntity);
 }

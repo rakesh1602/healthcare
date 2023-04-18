@@ -19,6 +19,5 @@ public class Account {
     @NotBlank(message = "Email id should not be empty or null.")
     private String emailId;
 
-    @JsonIgnore
     private String password;
 }

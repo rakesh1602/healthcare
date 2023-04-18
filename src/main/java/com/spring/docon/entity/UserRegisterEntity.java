@@ -6,8 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 @Data
 @AllArgsConstructor
@@ -32,10 +34,11 @@ public class UserRegisterEntity {
     private String lastName;
 
     @Column(name = "date_of_birth")
+    @DateTimeFormat(pattern = "YYYY-mm-dd")
     private Date dob;
 
     @Column(name = "phone_number")
-    private Integer phoneNumber;
+    private String phoneNumber;
 
     @Column(name = "gender")
     private String gender;
@@ -46,4 +49,7 @@ public class UserRegisterEntity {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "account_id")
     private AccountEntity accountEntity;
+
+    public UserRegisterEntity(long userId, String mr, String rakesh, String chavan, String s, int phoneNumber, String male, String admin, AccountEntity accountEntity) {
+    }
 }

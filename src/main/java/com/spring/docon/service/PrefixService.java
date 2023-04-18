@@ -23,7 +23,10 @@ public class PrefixService {
 
     public List<PrefixEntity> getPrefix() {
         List<PrefixEntity> prefix = prefixRepository.findAll();
-        return prefix;
+        if(prefix != null){
+            return prefix;
+        }
+        throw  new RuntimeException("Prefix data not found");
     }
 
 }

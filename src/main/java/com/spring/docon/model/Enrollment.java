@@ -13,7 +13,9 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Enrollment {
 
+    @JsonIgnore
     private UUID uuid;
 
+    @JsonIgnore
     private Duration expiry;
 }

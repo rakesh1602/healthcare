@@ -2,13 +2,16 @@ package com.spring.docon.model;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
-@Getter
+@Data
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,9 +27,10 @@ public class UserRegister {
     private String lastName;
 
     @NotBlank(message = "Phone number should not be empty or null.")
-    private Integer phoneNumber;
+    private String phoneNumber;
 
     @NotBlank(message = "Date of birth should not be empty or null.")
+    @DateTimeFormat(pattern = "YYYY-mm-dd")
     private Date dob;
 
     @NotBlank(message = "Gender should not be empty or null.")
@@ -35,5 +39,5 @@ public class UserRegister {
     @NotBlank(message = "Role should not be empty or null.")
     private String role;
 
-    private Account account;
+    private Account account =new Account();
 }

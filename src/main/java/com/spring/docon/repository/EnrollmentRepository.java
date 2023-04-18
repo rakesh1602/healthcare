@@ -12,5 +12,7 @@ import java.util.UUID;
 public interface EnrollmentRepository extends JpaRepository<EnrollmentEntity, UUID> {
 
     @Query("SELECT e FROM EnrollmentEntity e WHERE e.enrollmentId = ?1")
-    Optional<EnrollmentEntity> findByUUID(UUID enrollmentId);
+    EnrollmentEntity findByUUID(UUID enrollmentId);
+
+
 }

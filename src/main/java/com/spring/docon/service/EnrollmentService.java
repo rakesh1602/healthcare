@@ -7,15 +7,15 @@ import com.spring.docon.model.Enrollment;
 import com.spring.docon.repository.EnrollmentRepository;
 import com.spring.docon.repository.PatientRepository;
 import com.spring.docon.response.EnrollmentResponse;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
-import java.util.Optional;
 import java.util.UUID;
 
+@Component
 @Service
 @Log4j2
 public class EnrollmentService {
@@ -65,12 +65,20 @@ public class EnrollmentService {
         return enrollmentResponse;
     }
 
-    public Enrollment getEnrollment(UUID enrollmentId) {
+/*    public Enrollment getEnrollment(UUID enrollmentId) {
         EnrollmentEntity enrollmentEntity = enrollmentRepository.findByUUID(enrollmentId)
                 .orElseThrow(() -> new EntityNotFoundException("Enrollment id not found " + enrollmentId));
 
+        Enrollment enrollment = new Enrollment();
         enrollment.setUuid(enrollmentEntity.getEnrollmentId());
         return enrollment;
+    }*/
+
+    public EnrollmentResponse getEnrollment(UUID enrollmentId) {
+        EnrollmentEntity enrollmentEntity = enrollmentRepository.findByUUID(enrollmentId);
+        enrollmentResponse.setEnrollmentID(enrollmentEntity.getEnrollmentId());
+        log.info("Enrollment id : ", enrollmentResponse.getEnrollmentID());
+        return enrollmentResponse;
     }
 
 
