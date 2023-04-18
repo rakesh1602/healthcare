@@ -42,18 +42,16 @@ public class PatientService {
     }
 
     public PatientResponse addPatient(Patient patient) {
-        log.info("Adding patient details.");
         patientEntity = patientMapper.modelToEntity(patient);
-        patientEntity.getUserRegisterEntity().getAccountEntity().setPassword(Base64.getEncoder().encodeToString(patientEntity.getUserRegisterEntity().getAccountEntity().getPassword().getBytes()));
         patientRepository.save(patientEntity);
         log.info("Patient details saved successfully.");
 
-        PatientResponse patientResponse = new PatientResponse();
-        patientResponse.setId(patientEntity.getPatientId());
-        log.info("Response id : {}", patientResponse.getId());
-
         enrollmentService.createEnrollment(patientEntity.getPatientId(), enrollment);
         log.info("Create enrollment method has been called.");
+
+        PatientResponse patientResponse = new PatientResponse();
+        patientResponse.setPatientId(patientEntity.getPatientId());
+        log.info("Response id : {}", patientResponse.getPatientId());
 
         return patientResponse;
     }
@@ -61,7 +59,7 @@ public class PatientService {
         Optional<PatientEntity> optionalPatientEntity = patientRepository.findById(patientId);
         System.out.println(optionalPatientEntity);
 
-        patient = patientMapper.toModel(optionalPatientEntity.get());
+        patient = patientMapper.entityToModel(optionalPatientEntity.get());
         log.info("Search patient with patientId {}", patient);
 
         return patient;
@@ -77,36 +75,26 @@ public class PatientService {
         patientRepository.findByPatientIdAndDeleteFalse(patientId);
     }
 
-    //    public Patient updatePatient(Long patientId, Patient patient) {
-//
-//        PatientEntity patientEntity1 = patientRepository.findById(patientId).get();
-//
-//        PatientEntity patient1 = patientMapper.modelToEntity(patient);
-//
-//        patient1.setPatientId(patientEntity.getPatientId());
-//        patientRepository.save(patient1);
-//        log.info("Patient updated where id is:" + patientId);
-//        return patient;
-//    }
-//    public Patient updatePatient(Long patientId, Patient patient){
-//        PatientEntity oldPatientEntity = patientRepository.findById(patientId).get();
-//
-//        UserRegisterEntity userRegisterEntity = oldPatientEntity.getUser();
-//        Long userId = userRegisterEntity.getUserId();
-//
-//        AccountEntity accountEntity = oldPatientEntity.getUser().getAccount();
-//        Long accountId = accountEntity.getAccountId();
-//
-//        PatientEntity newPatientEntity = patientMapper.modelToEntity(patient);
-//        newPatientEntity.setPatientId(patientId);
-//        newPatientEntity.getUser().setUserId(userId);
-//        newPatientEntity.getUser().getAccount().setAccountId(accountId);
-//
-//        PatientEntity patientEntity1 = patientRepository.save(newPatientEntity);
-//
-//        Patient patient1 = patientMapper.toModel(patientEntity1);
-//
-//        return patient1;
-//
-//    }
+    public Patient updatePatient(Long patientId, Patient patient) {
+
+        PatientEntity oldPatientEntity = patientRepository.findById(patientId).get();
+
+        UserRegisterEntity userRegisterEntity = oldPatientEntity.getUser();
+        Long userId = userRegisterEntity.getUserId();
+
+        AccountEntity accountEntity = oldPatientEntity.getUser().getAccount();
+        Long accountId = accountEntity.getAccountId();
+
+        PatientEntity newPatientEntity = patientMapper.modelToEntity(patient);
+        newPatientEntity.setPatientId(patientId);
+        newPatientEntity.getUser().setUserId(userId);
+        newPatientEntity.getUser().getAccount().setAccountId(accountId);
+//        accountRepository.save(newPatientEntity.getUser().getAccount());
+//        userRepository.save(newPatientEntity.getUser());
+        PatientEntity patientEntity1 = patientRepository.save(newPatientEntity);
+
+        Patient patient1 = patientMapper.entityToModel(patientEntity1);
+        return patient1;
+
+    }
 }

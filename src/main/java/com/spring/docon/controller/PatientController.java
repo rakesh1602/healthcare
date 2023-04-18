@@ -39,16 +39,16 @@ public class PatientController {
         return new ResponseEntity<>(patients, HttpStatus.OK);
     }
 
-//    @PutMapping("patients/{patientId}")
-//    public ResponseEntity<Patient>updatePatient(@PathVariable Long patientId,@RequestBody Patient patient){
-//        Patient patient1 = patientService.updatePatient(patientId,patient);
-//        return new ResponseEntity<>(patient,HttpStatus.OK);
-//    }
-
     @DeleteMapping(path = "patients/{patientId}")
     public void deleteById(@PathVariable Long patientId){
         patientService.deleteById(patientId);
     }
 
+    @PutMapping(value = "/patients/{patientId}")
+    public ResponseEntity<Patient> updatePatient(@PathVariable Long patientId , @RequestBody Patient patient)
+    {
+        Patient patient1= patientService.updatePatient(patientId, patient);
+        return new ResponseEntity<>(patient , HttpStatus.OK);
+    }
 
 }

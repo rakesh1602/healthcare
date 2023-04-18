@@ -10,11 +10,10 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface PatientMapper {
 
-    @Mapping(source = "user", target = "userRegisterEntity")
-    @Mapping(source = "user.account", target = "userRegisterEntity.accountEntity")
+    @Mapping(source = "user", target = "user")
     PatientEntity modelToEntity(Patient patient);
 
-    Patient toModel(PatientEntity patientEntity);
+    Patient entityToModel(PatientEntity patientEntity);
 
     List<Patient> toModels(List<PatientEntity> patientEntities);
 }

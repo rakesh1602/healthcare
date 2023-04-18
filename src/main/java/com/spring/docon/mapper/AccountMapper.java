@@ -10,5 +10,7 @@ import java.util.Optional;
 @Mapper(componentModel = "spring")
 public interface AccountMapper {
 
+    AccountEntity modelToEntity(Account account);
     Account entityToModel(AccountEntity accountEntity);
+
 }

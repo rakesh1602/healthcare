@@ -17,4 +17,5 @@ public interface PatientRepository extends JpaRepository<PatientEntity, Long> {
 
     @Query("SELECT p FROM PatientEntity p WHERE p.id = ?1 AND p.deleted = true")
     Optional<PatientEntity> findByPatientIdAndDeleteFalse(Long patientId);
+
 }

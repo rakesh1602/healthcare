@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserResponse {
-    private Long userId;
+public class ProviderResponse {
+
+    private Long providerId;
+
 }

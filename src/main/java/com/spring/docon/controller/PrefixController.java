@@ -22,11 +22,9 @@ public class PrefixController {
         this.prefixService=prefixService;
     }
 
-<<<<<<< HEAD
-    @GetMapping(path = "/prefix")
-=======
+
+
     @GetMapping(path = "/prefixs")
->>>>>>> c73a568 (password-encrypt)
     public ResponseEntity<List<PrefixEntity>> Gender(){
         List<PrefixEntity> prefix=prefixService.getPrefix();
         return new ResponseEntity<>(prefix, HttpStatus.OK);
