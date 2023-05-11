@@ -11,6 +11,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
@@ -19,6 +20,7 @@ import java.util.UUID;
 @RestController
 @Log4j2
 @ToString
+@CrossOrigin(origins = "*")
 public class MailController {
 
     @Value("${topic.name.consumer}")
@@ -62,7 +64,7 @@ public class MailController {
 
         Response response = mailService.sendEmail(emailRequest);
 
-        if (response.getStatusCode() == 200) {
+        if (response.getStatusCode() == 200 || response.getStatusCode() == 202) {
             log.info("Your mail has been sent successfully to the email id : {} ", emailId);
         } else {
             log.info("failed to send mail to the {}", emailId);

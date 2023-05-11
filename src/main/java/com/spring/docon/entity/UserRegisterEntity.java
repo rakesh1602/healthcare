@@ -26,7 +26,7 @@ public class UserRegisterEntity {
     private String lastName;
 
     @NotBlank(message = "Phone number should not be empty or null.")
-    private Integer phoneNumber;
+    private String phoneNumber;
 
     @NotBlank(message = "Date of birth should not be empty or null.")
     private Date dob;
